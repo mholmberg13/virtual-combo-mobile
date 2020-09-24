@@ -2,6 +2,8 @@ import * as React from "react";
 import { View, Text } from "react-native";
 import Title from './components/Header.js';
 import Start from './components/Start.js'
+import Display from './components/Display.js'
+import Filters from './components/Filters.js'
 
 
 class App extends React.Component {
@@ -119,7 +121,19 @@ class App extends React.Component {
       >
 
         <Title/>
-        <Start/>
+        {/* <Filters/> */}
+        <Display 
+          strike_one={this.state.strike_one}
+          strike_two={this.state.strike_two}
+          strike_three={this.state.strike_three}
+          strike_four={this.state.strike_four}
+          strike_five={this.state.strike_five}
+        />
+        <Start
+          handleStart={this.handleStart}
+          handleStop={this.handleStop}
+          handleNewCombo={this.handleNewCombo}
+        />
 
       </View>
     );

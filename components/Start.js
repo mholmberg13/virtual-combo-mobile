@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button} from 'react-native'
+import {Button, View} from 'react-native'
 
 class Start extends React.Component {
     state = {
@@ -7,9 +7,16 @@ class Start extends React.Component {
     }
     render () {
         return (
-        <Button
-            title={this.state.label}
-        />
+            <View>
+                <Button
+                    title="START"
+                    onPress={this.props.handleStart}
+                />
+                <Button
+                    title="STOP"
+                    onPress={this.props.handleStop}
+                />
+        </View>
         )
     }
 }
