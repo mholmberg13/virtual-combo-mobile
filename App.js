@@ -70,6 +70,13 @@ class App extends React.Component {
     clearInterval(this.intervalId)
   }
 
+  // toggleThreeCheck = () => {
+  //   this.setState({
+  //     four_checked: false,
+  //     five_checked: false
+  //   })
+  // }
+
   toggleFourCheck = () => {
     if (this.state.four_checked === false) {
       this.setState({
@@ -98,6 +105,14 @@ class App extends React.Component {
     console.log(this.state.five_checked)
   }
 
+  handleThreeCombo = () => {
+    this.setState({
+      combo_length: 3,
+      four_checked: false,
+      five_checked: false
+    })
+  }
+
   handleFourCombo = () => {
     this.setState({
       combo_length: Math.floor(Math.random() * 2) + 3
@@ -107,6 +122,16 @@ class App extends React.Component {
   handleFiveCombo = () => {
     this.setState({
       combo_length: Math.floor(Math.random() * 3) + 3
+    })
+  }
+
+  handleReset = () => {
+    this.setState({
+      strike_one: "",
+      strike_two: "",
+      strike_three: "",
+      strike_four: "",
+      strike_five: ""
     })
   }
 
@@ -121,7 +146,11 @@ class App extends React.Component {
       >
 
         <Title/>
-        {/* <Filters/> */}
+        <Filters
+          toggleThreeCheck={this.handleThreeCombo}
+          toggleFourCheck={this.toggleFourCheck}
+          toggleFiveCheck={this.toggleFiveCheck}
+        />
         <Display 
           strike_one={this.state.strike_one}
           strike_two={this.state.strike_two}
@@ -133,6 +162,7 @@ class App extends React.Component {
           handleStart={this.handleStart}
           handleStop={this.handleStop}
           handleNewCombo={this.handleNewCombo}
+          handleReset={this.handleReset}
         />
 
       </View>

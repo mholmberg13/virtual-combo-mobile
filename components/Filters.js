@@ -1,5 +1,5 @@
 import React from 'react'
-import {Text, View} from 'react-native'
+import {Button, Text, View} from 'react-native'
 import CheckBox from '@react-native-community/checkbox';
 
 
@@ -7,9 +7,19 @@ class Filters extends React.Component {
     render () {
         return (
             <View>
-                <CheckBox
-                value="4 combo"
+                <Button
+                    title='3 Combo'
+                    onPress={this.props.toggleThreeCheck}
                 />
+                <Button
+                    title="4 Combo"
+                    onPress={this.props.toggleFourCheck}
+                />
+                <Button
+                    title="5 Combo"
+                    onPress={this.props.toggleFiveCheck}
+                />
+            
             </View>
         )
     }
